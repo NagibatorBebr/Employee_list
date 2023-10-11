@@ -1,6 +1,7 @@
 #Импорт нужных библиотек
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 import sqlite3
 
 #Класс главного окна
@@ -17,6 +18,12 @@ class Main(tk.Frame):
         
         toolbar = tk.Frame(bg='#ffd88a',bd=2) # Панель инструментов
         toolbar.pack(side=tk.LEFT,fill=tk.Y)
+
+        #расположение фото
+        self.photo = tk.PhotoImage(file="./img/surprise.png",)
+        self.Artwork = tk.Label(toolbar, image=self.photo,bg='#ffd88a')
+        self.Artwork.photo = self.photo
+        self.Artwork.pack(side=tk.BOTTOM)
         
         
         self.add_img = tk.PhotoImage(file = './img/add.png')#создание и размещение кнопки добавить  с фотографией
